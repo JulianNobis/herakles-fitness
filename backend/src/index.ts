@@ -1,10 +1,14 @@
 import express from "express";
+import cors from "cors";
 
 function startServer() {
   const app = express();
   const PORT = 8080;
 
   app.use(express.json());
+  app.use(cors());
+
+  app.use("/", require("./api").default);
 
   app.listen(PORT, () => console.log(`app is listening on localhost:${PORT}`));
 
@@ -23,8 +27,6 @@ function startServer() {
   //       later: modify templates (think of a good data structure for database!!)
   //       later: create own templates with own exercise selection
   // TODO: res.status(200)... even necessary? what are the best practices for sending the response?
-
-  app.use("/", require("./api").default);
 }
 
 startServer();
