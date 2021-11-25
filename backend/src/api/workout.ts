@@ -1,16 +1,20 @@
 import { Router } from "express";
+import * as WorkoutService from "../services/workout";
 
 const router = Router();
 
 // TODO add functionality to filter workouts by time (week, month, etc.)
+// TODO is DATE the correct type?? (also check how the DB stores this...)
 
 router.get('/workout', (req, res) => { 
-    res.status(200).send('list of workouts');
+    res.status(200).send(WorkoutService.getWorkouts());
 });
 
-// id route has to be the last route
 router.get('/:id', (req, res) => {
-    res.status(200).send(`workout id=${req.params.id}`);
+    if (isNaN(+req.params.id)){
+        res.send(`Error. Could not find anything for ${req.params.id}`);
+    }
+    res.status(200).send(WorkoutService.getById(+req.params.id));
 });
 
-export default router
+export default router;

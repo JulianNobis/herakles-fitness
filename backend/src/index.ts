@@ -14,6 +14,7 @@ function startServer() {
 
   // TODO: best way to access mongoDB in nodejs (also: where to do this best -> create DB folder probably?)
   // TODO: which functionalites should the front page have? ->
+  //       create homepage service/api/whatever!!
   //       choose from different templates (pull/push/legs, upper/lower, etc.)
   //       later: modify templates (think of a good data structure for database!!)
   //       later: create own templates with own exercise selection

@@ -1,25 +1,29 @@
 import { Router } from "express";
+import * as ExerciseService from "../services/exercise";
 
 const router = Router();
+
 router.get('/exercise', (req, res) => { 
-    res.status(200).send('list of all exercises');
+    res.status(200).send(ExerciseService.getExercises());
 });
 
 router.get('/deadlift', (req, res) => {
-    res.status(200).send('exercise: deadlift');
+    res.status(200).send(ExerciseService.getByName('deadlift'));
 });
 
-router.get('/bench-press', (req, res) => {
-    res.status(200).send('exercise: bench press');
+router.get('/benchpress', (req, res) => {
+    res.status(200).send(ExerciseService.getByName('benchpress'));
 });
 
 router.get('/squat', (req, res) => {
-    res.status(200).send('exercise: squat');
+    res.status(200).send(ExerciseService.getByName('squat'));
 });
 
-// id route has to be the last route
 router.get('/:id', (req, res) => {
-    res.status(200).send(`exercise with id=${req.params.id}`);
+    if (isNaN(+req.params.id)){
+         res.send(`Error. Could not find anything for ${req.params.id}`);
+    }
+    res.status(200).send(ExerciseService.getById(+req.params.id));
 });
 
-export default router
+export default router;
