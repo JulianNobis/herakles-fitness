@@ -32,10 +32,7 @@ router.get("/lowerbody", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  	if (isNaN(+req.params.id)){
-    	res.send(`Error. Could not find anything for ${req.params.id}`);
-  	}
-  	res.status(200).send(TemplateService.getById(+req.params.id));
+  	res.status(200).send(TemplateService.getById(req.params.id));
 });
 
 export default router;

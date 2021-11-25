@@ -12,7 +12,11 @@ function startServer() {
 
   app.listen(PORT, () => console.log(`app is listening on localhost:${PORT}`));
 
-  // TODO: best way to access mongoDB in nodejs (also: where to do this best -> create DB folder probably?)
+  // sudo systemctl status mongod
+  // sudo systemctl start mongod
+  // sudo systemctl stop mongod
+  // TODO: modify routes of /:id to /id/:id!!!
+  // TODO: verify that field "id" is a string everywhere!!
   // TODO: which functionalites should the front page have? ->
   //       create homepage service/api/whatever!!
   //       choose from different templates (pull/push/legs, upper/lower, etc.)

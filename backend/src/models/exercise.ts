@@ -1,12 +1,12 @@
 export default class Exericse {
-    id: number; 
+    id: string; 
     name: string;
-    sets: number;
-    reps: number;
-    intensity?: Intensity; // '?' also needed at constructor?
+    sets?: number;
+    reps?: number;
+    intensity?: Intensity;
 
     // TODO check if another constructor is necessary as well
-    constructor(id: number, name: string, sets: number, reps: number, intensity: Intensity){
+    constructor(id: string, name: string, sets: number, reps: number, intensity: Intensity){
         this.id = id;
         this.name = name;
         this.sets = sets;
