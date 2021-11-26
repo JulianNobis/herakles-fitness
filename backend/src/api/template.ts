@@ -4,35 +4,51 @@ import * as TemplateService from "../services/template";
 const router = Router();
 
 router.get("/template", (req, res) => {
-  	res.status(200).send(TemplateService.getTemplates());
+  	TemplateService.getTemplates().then((data) => {
+		  res.status(200).send(data);
+	  });
 });
 
 router.get("/fullbody", (req, res) => {
-  	res.status(200).send(TemplateService.getByName("fullbody"));
+  	TemplateService.getByName("fullbody").then((data) => {
+		  res.status(200).send(data);
+	  });
 });
 
 router.get("/pull", (req, res) => {
-  	res.status(200).send(TemplateService.getByName("pull"));
+  	TemplateService.getByName("pull").then((data) => {
+		  res.status(200).send(data);
+	  });
 });
 
 router.get("/push", (req, res) => {
-  	res.status(200).send(TemplateService.getByName("push"));
+  	TemplateService.getByName("push").then((data) => {
+		  res.status(200).send(data);
+	  });
 });
 
 router.get("/legs", (req, res) => {
-  	res.status(200).send(TemplateService.getByName("legs"));
+  	TemplateService.getByName("legs").then((data) => {
+		  res.status(200).send(data);
+	  });
 });
 
 router.get("/upperbody", (req, res) => {
-  	res.status(200).send(TemplateService.getByName("upperbody"));
+  	TemplateService.getByName("upperbody").then((data) => {
+		  res.status(200).send(data);
+	  });
 });
 
 router.get("/lowerbody", (req, res) => {
-	res.status(200).send(TemplateService.getByName("lowerbody"));
+	TemplateService.getByName("lowerbody").then((data) => {
+		res.status(200).send(data);
+	});
 });
 
-router.get("/:id", (req, res) => {
-  	res.status(200).send(TemplateService.getById(req.params.id));
+router.get("/id/:id", (req, res) => {
+  	TemplateService.getById(req.params.id).then((data) => {
+		  res.status(200).send(data);
+	  });
 });
 
 export default router;

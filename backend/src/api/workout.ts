@@ -7,11 +7,15 @@ const router = Router();
 // TODO is DATE the correct type?? (also check how the DB stores this...)
 
 router.get('/workout', (req, res) => { 
-    res.status(200).send(WorkoutService.getWorkouts());
+    WorkoutService.getWorkouts().then((data) => {
+        res.status(200).send(data);
+    });
 });
 
-router.get('/:id', (req, res) => {
-    res.status(200).send(WorkoutService.getById(req.params.id));
+router.get('/id/:id', (req, res) => {
+    WorkoutService.getById(req.params.id).then((data) => {
+        res.status(200).send(data);
+    });
 });
 
 export default router;
