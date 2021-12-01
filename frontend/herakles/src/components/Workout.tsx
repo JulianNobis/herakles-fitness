@@ -1,7 +1,10 @@
 import { useState } from "react";
+import Template from "./Template";
+
+type ShowTemplate = "Default" | "Existing" | "New";
 
 function Workout(){
-    const [showTemplate, setShowTemplate] = useState("Default");
+    const [showTemplate, setShowTemplate] = useState<ShowTemplate>("Default");
 
     return (
         <div>
@@ -15,13 +18,13 @@ function Workout(){
 
         {showTemplate === "Existing" && (
             <>
-                <p>Load existing Templates here and let user choose the Template</p>
+                <Template prop="Existing"></Template>
             </>
         )}
 
         {showTemplate === "New" && (
             <>
-                <p>Create a new Template and let user choose the Exercises</p>
+                <Template prop="New"></Template>
             </>
         )}
 
